@@ -19,7 +19,7 @@ function Timer(props){
     useEffect(()=>{
         if(seconds === 0){
             dispatch(timerEnd());
-            alarm.play();
+            alarm.current.play();
         }else if(isRunning){
             const pendingId = setTimeout(()=> dispatch(decrementTimer()), 1000);
             dispatch(updatePending(pendingId));
