@@ -17,11 +17,11 @@ function Timer(props){
     useEffect(()=>{
         
         if(seconds === 0){
-            dispatch(timerEnd);
+            dispatch(timerEnd());
         }
 
         if(isRunning){
-            setTimeout(()=> dispatch(decrementTimer), 1000);
+            setTimeout(()=> dispatch(decrementTimer()), 1000);
         }
 
     },[isRunning,seconds]);

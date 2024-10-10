@@ -8,19 +8,19 @@ const timerSlice = createSlice({
     reducers: {
         
         incrementSession: (state) => {
-            return {...state, sessionLength: Math.min(99, state.sessionLength + 1), isRunning: false};
+            return {...defaultState, sessionLength: Math.min(99, state.sessionLength + 1), remainingSeconds: Math.min(5940, state.remainingSeconds + 60), isRunning: false};
         },
         
         decrementSession: (state) => {
-            return {...state, sessionLength: Math.max(1, state.sessionLength - 1), isRunning: false};
+            return {...defaultState, sessionLength: Math.max(1, state.sessionLength - 1), remainingSeconds: Math.max(60, state.remainingSeconds - 60), isRunning: false};
         },
         
         incrementBreak: (state) => {
-            return {...state, breakLength: Math.min(99, state.breakLength + 1), isRunning: false};
+            return {...defaultState, breakLength: Math.min(99, state.breakLength + 1), isRunning: false};
         },
         
         decrementBreak: (state) => {
-            return {...state, breakLength: Math.max(1, state.breakLength - 1), isRunning: false};
+            return {...defaultState, breakLength: Math.max(1, state.breakLength - 1), isRunning: false};
         },
         
         decrementTimer: (state) => {
@@ -32,7 +32,7 @@ const timerSlice = createSlice({
         },
 
         togglePlay: (state) => {
-            return {...defaultState};
+            return {...state, isRunning: !state.isRunning};
         },
         
         reset: (state) => {
