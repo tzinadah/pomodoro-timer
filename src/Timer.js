@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { decrementTimer, timerEnd } from "./timerSlice";
+import { decrementTimer, timerEnd, updatePending } from "./timerSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import Row from "react-bootstrap/Row";
@@ -21,7 +21,8 @@ function Timer(props){
         }
 
         if(isRunning){
-            setTimeout(()=> dispatch(decrementTimer()), 1000);
+            const pendingId = setTimeout(()=> dispatch(decrementTimer()), 1000);
+            dispatch(updatePending(pendingId));
         }
 
     },[isRunning,seconds]);
