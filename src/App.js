@@ -1,8 +1,15 @@
+import LengthControls from "./LengthControls";
+
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import "./custom.scss"
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <Container>
+      <Row><h1>Pomodoro Timer</h1></Row>
+      <LengthControls />
+    </Container>
   );
 }
 
