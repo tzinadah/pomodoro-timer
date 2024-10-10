@@ -15,12 +15,9 @@ function Timer(props){
     const currentSegment = useSelector((state) => state.timer.currentSegment)
     
     useEffect(()=>{
-        
         if(seconds === 0){
             dispatch(timerEnd());
-        }
-
-        if(isRunning){
+        }else if(isRunning){
             const pendingId = setTimeout(()=> dispatch(decrementTimer()), 1000);
             dispatch(updatePending(pendingId));
         }

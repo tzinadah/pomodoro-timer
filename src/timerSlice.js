@@ -9,26 +9,26 @@ const timerSlice = createSlice({
         
         incrementSession: (state) => {
             clearTimeout(state.pending);
-            return {...state, sessionLength: Math.min(99, state.sessionLength + 1), remainingSeconds: Math.min(5940, state.sessionLength * 60 + 60), isRunning: false};
+            return {...state, sessionLength: Math.min(99, state.sessionLength + 1), remainingSeconds: Math.min(5940, state.sessionLength * 60 + 60), isRunning: false, currentSegment:"Session"};
         },
         
         decrementSession: (state) => {
             clearTimeout(state.pending);
-            return {...state, sessionLength: Math.max(1, state.sessionLength - 1), remainingSeconds: Math.max(60, state.sessionLength * 60 - 60), isRunning: false};
+            return {...state, sessionLength: Math.max(1, state.sessionLength - 1), remainingSeconds: Math.max(60, state.sessionLength * 60 - 60), isRunning: false, currentSegment:"Session"};
         },
         
         incrementBreak: (state) => {
             clearTimeout(state.pending);
-            return {...state, breakLength: Math.min(99, state.breakLength + 1), remainingSeconds: state.sessionLength * 60, isRunning: false};
+            return {...state, breakLength: Math.min(99, state.breakLength + 1), remainingSeconds: state.sessionLength * 60, isRunning: false, currentSegment:"Session"};
         },
         
         decrementBreak: (state) => {
             clearTimeout(state.pending);
-            return {...state, breakLength: Math.max(1, state.breakLength - 1), remainingSeconds: state.sessionLength * 60, isRunning: false};
+            return {...state, breakLength: Math.max(1, state.breakLength - 1), remainingSeconds: state.sessionLength * 60, isRunning: false, currentSegment:"Session"};
         },
         
         decrementTimer: (state) => {
-            return {...state, remainingSeconds: state.remainingSeconds - 20}
+            return {...state, remainingSeconds: state.remainingSeconds - 1}
         },
         
         updatePending: (state,action) =>{
