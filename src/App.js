@@ -1,9 +1,10 @@
 import { Provider } from "react-redux";
+import store from "./store"
 
 import LengthControls from "./LengthControls";
 import Timer from "./Timer";
 import TimerControls from "./TimerControls";
-import store from "./store"
+
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
