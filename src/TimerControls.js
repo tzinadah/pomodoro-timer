@@ -13,14 +13,14 @@ function TimerControls(props){
     const isRunning = useSelector((state) => state.timer.isRunning);
     
     return (
-    <Row>
-        <Col>
-            <Button onClick={() => dispatch(togglePlay())}>
+    <Row className="justify-content-center">
+        <Col xs={3}>
+            <Button className="rounded-circle text-light border border-light border-3" variant="info" onClick={() => dispatch(togglePlay())}>
                 {isRunning ? <PauseFill /> : <PlayFill />}
             </Button>
         </Col>
-        <Col>
-            <Button onClick={() => dispatch(reset())}>
+        <Col xs={3}>
+            <Button className="rounded-circle text-light border border-light border-3" variant="info" onClick={() => dispatch(reset())}>
                 <ArrowClockwise />
             </Button>
         </Col>

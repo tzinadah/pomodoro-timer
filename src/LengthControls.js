@@ -13,33 +13,33 @@ function LengthControls(props){
     const breakLength = useSelector((state) => state.timer.breakLength);
 
     return(
-        <Row>
+        <Row className="">
             <Col>
-                <Row><h2>Session Length</h2></Row>
-                <Row>
-                    <Col>
-                        <Button onClick={()=> dispatch(decrementSession())}><ArrowDown /></Button>
+                <Row><h2 className="fw-bold">Session Length</h2></Row>
+                <Row className="justify-content-center">
+                    <Col xs={3}>
+                        <Button className="rounded-circle border border-light border-3" variant="info" onClick={()=> dispatch(decrementSession())}><ArrowDown className="text-light"/></Button>
                     </Col>
-                    <Col>
-                        {sessionLength}
+                    <Col  xs={2}>
+                        <h5 className="text-center fw-bolder">{sessionLength}</h5>
                     </Col>
-                    <Col>
-                        <Button onClick={()=> dispatch(incrementSession())}><ArrowUp /></Button>
+                    <Col xs={3}>
+                        <Button className="rounded-circle border border-light border-3" variant="info" onClick={()=> dispatch(incrementSession())}><ArrowUp className="text-light"/></Button>
                     </Col>
                 </Row>
             </Col>
             <Col>
             <Col>
-                <Row><h2>Break Length</h2></Row>
-                <Row>
-                    <Col>
-                        <Button onClick={()=> dispatch(decrementBreak())}><ArrowDown /></Button>
+                <Row><h2 className="fw-bold">Break Length</h2></Row>
+                <Row className="justify-content-center">
+                    <Col xs={3}>
+                        <Button className="rounded-circle border border-light border-3" variant="info" onClick={()=> dispatch(decrementBreak())}><ArrowDown className="text-light"/></Button>
                     </Col>
-                    <Col>
-                        {breakLength}
+                    <Col xs={2}>
+                    <h5 className="text-center fw-bolder">{breakLength}</h5>
                     </Col>
-                    <Col>
-                        <Button onClick={()=> dispatch(incrementBreak())}><ArrowUp /></Button>
+                    <Col xs={3}>
+                        <Button className="rounded-circle border border-light border-3" variant="info" onClick={()=> dispatch(incrementBreak())}><ArrowUp className="text-light"/></Button>
                     </Col>
                 </Row>
             </Col>

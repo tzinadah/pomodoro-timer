@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import { decrementTimer, timerEnd, updatePending } from "./timerSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,10 +29,10 @@ function Timer(props){
 
     return (
         <>
-        <Row><h2>{currentSegment}</h2></Row>
+        <Row><h2 className="fw-bolder">{currentSegment}</h2></Row>
         <Row>
-            <Col>
-                {Math.floor(seconds/60).toString()}:{(seconds%60).toString().padStart(2, "0")}            
+            <Col className="d-flex justify-content-center">
+                <h1 className="bg-primary w-25 p-2 rounded-pill border border-3 border-light fw-bold">{Math.floor(seconds/60).toString()}:{(seconds%60).toString().padStart(2, "0")}</h1>            
             </Col>
         </Row>
         </>
