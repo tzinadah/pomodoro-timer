@@ -8,15 +8,18 @@ import Col from "react-bootstrap/Col";
 
 function Timer(props){
 
+    const alarm = useRef(new Audio("http://sfxcontent.s3.amazonaws.com/soundfx/AircraftAlarm.mp3"));
+
     const dispatch = useDispatch();
     
     const seconds = useSelector((state) => state.timer.remainingSeconds);
     const isRunning = useSelector((state) => state.timer.isRunning);
     const currentSegment = useSelector((state) => state.timer.currentSegment)
-    
+
     useEffect(()=>{
         if(seconds === 0){
             dispatch(timerEnd());
+            alarm.play();
         }else if(isRunning){
             const pendingId = setTimeout(()=> dispatch(decrementTimer()), 1000);
             dispatch(updatePending(pendingId));
